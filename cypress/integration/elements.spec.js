@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Work with basic elementes", () => {
+describe("Work with basic elements", () => {
   before(() => {
     //executa uma vez antes do primeiro teste
     cy.visit("https://wcaquino.me/cypress/componentes.html");
@@ -8,7 +8,7 @@ describe("Work with basic elementes", () => {
 
   beforeEach(() => {
     //Executa antes de cada um dos testes
-    cy.reload(); // limpa a sujeira de um de um teste para outro
+    cy.reload(); // limpa a sujeira de um teste para outro
   });
 
   it("Links", () => {
@@ -55,6 +55,12 @@ describe("Work with basic elementes", () => {
   it("RadioButton", () => {
     cy.get("#formSexoFem").click().should("be.checked");
     cy.get("#formSexoMasc").should("not.be.checked");
-    cy.get("[name=formSexo]").should('have.length', 2);
+    cy.get("[name=formSexo]").should("have.length", 2);
+  });
+
+  it("Checkbox", () => {
+    cy.get("[name=formComidaFavorita]").click({ multiple: true }); // { multiple: true } clica em todos os checkbox 
+cy.get('#formComidaPizza').should('be.checked');
+
   });
 });
