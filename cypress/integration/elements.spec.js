@@ -47,8 +47,14 @@ describe("Work with basic elementes", () => {
       .should("have.value", "Teste1234");
 
     cy.get("#elementosForm\\:sugestoes")
-      .clear()// usar quando houver sujeira no campo. Outra opção seria fazer um reload()
-      .type('Erro{selectall}Acerto', {delay:100}) //Faz um delay de 100ms na escrita
+      .clear() // usar quando houver sujeira no campo. Outra opção seria fazer um reload()
+      .type("Erro{selectall}Acerto", { delay: 100 }) //Faz um delay de 100ms na escrita
       .should("have.value", "Acerto");
+  });
+
+  it("RadioButton", () => {
+    cy.get("#formSexoFem").click().should("be.checked");
+    cy.get("#formSexoMasc").should("not.be.checked");
+    cy.get("[name=formSexo]").should('have.length', 2);
   });
 });
