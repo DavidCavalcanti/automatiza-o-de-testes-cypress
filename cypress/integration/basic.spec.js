@@ -11,13 +11,12 @@ describe("Cypress basics", () => {
     /**
      * Curiosidade: O cypress ele cria uma página externa e coloca a página de
      * teste de dentro dela, tendo assim todo o controle sobre a execução. Há
-     * vantagens e desvantagens
-     *
-     * como ler: Espero que o título seja igual ao conteúdo 'Campo treinamento'
-     * e que nele contenha o conteúdo 'Campo'
+     * vantagens e desvantagens.
      */
 
     /*
+       como ler: Espero que o título seja igual ao conteúdo 'Campo treinamento'
+       e que nele contenha o conteúdo 'Campo'
         Uma forma de escrita:
         cy.title().should('be.equal', 'Campo de Treinamento');
         cy.title().should('contain', 'Campo');
