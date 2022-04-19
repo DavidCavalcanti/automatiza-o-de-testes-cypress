@@ -73,6 +73,10 @@ describe("Work with basic elements", () => {
   });
 
   it.only("Combo multiplo", () => {
-    cy.get("[data-testid=dataEsportes]").select(["natacao",'futebol', "Corrida"]); //Para um combo multiplo mandado via array, deve fazer a busca com o value
+    cy.get("[data-testid=dataEsportes]").select([
+      "natacao",
+      "futebol",
+      "Corrida",
+    ]); //Para um combo multiplo mandado via array, deve fazer a busca com o value
   });
 });
