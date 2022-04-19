@@ -59,15 +59,20 @@ describe("Work with basic elements", () => {
   });
 
   it("Checkbox", () => {
-    cy.get("[name=formComidaFavorita]").click({ multiple: true }); // { multiple: true } clica em todos os checkbox 
-cy.get('#formComidaPizza').should('be.checked');
-
+    cy.get("[name=formComidaFavorita]").click({ multiple: true }); // { multiple: true } clica em todos os checkbox
+    cy.get("#formComidaPizza").should("be.checked");
   });
-  it.only('Combo', () =>{
-    cy.get('[data-test=dataEscolaridade]')
-    .select('2o grau completo').should('have.value', '2graucomp');
-    
-    cy.get('[data-test=dataEscolaridade]')
-    .select('1graucomp').should('have.value', '1graucomp');
-  })
+  it("Combo", () => {
+    cy.get("[data-test=dataEscolaridade]")
+      .select("2o grau completo")
+      .should("have.value", "2graucomp");
+
+    cy.get("[data-test=dataEscolaridade]")
+      .select("1graucomp")
+      .should("have.value", "1graucomp");
+  });
+
+  it.only("Combo multiplo", () => {
+    cy.get("[data-testid=dataEsportes]").select(["natacao",'futebol', "Corrida"]); //Para um combo multiplo mandado via array, deve fazer a busca com o value
+  });
 });
