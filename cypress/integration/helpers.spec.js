@@ -67,7 +67,29 @@ describe("Helpers", () => {
       }); */
 
     // Melhorando o encadeamento
-    cy.wrap(objeto2).its("endereco.rua").should('contain', 'Rua tamandaré');
-    cy.wrap(objeto2).its("endereco.numero").should('be.equal', 347);
+    cy.wrap(objeto2).its("endereco.rua").should("contain", "Rua tamandaré");
+    cy.wrap(objeto2).its("endereco.numero").should("be.equal", 347);
+  });
+
+  it.only("Invoke...", () => {
+    const getValue = () => 1;
+    const soma = (a, b) => a + b;
+
+    // pegando a função getValue e executando com cypress
+    cy.wrap({ fn: getValue }).invoke("fn").should("be.equal", 1);
+
+    // wrap pegou um objeto com uma função e colocou como atributo o fn
+    // invoke chamou e executou essa função passando 5 e 5 como parâmetro
+    // para a e b.
+    cy.wrap({ fn: soma }).invoke("fn", 5, 5).should("be.equal", 10);
+
+    // Vendo algumas outras funcionalidades
+    cy.visit("https://wcaquino.me/cypress/componentes.html");
+    cy.get("#formNome").invoke("val", "Texto via invoke"); // usando método do jquey para escrever no input
+    cy.window().invoke("alert", "Dá pra ver?");
+    cy.get("#resultado").invoke(
+      "html",
+      '<input type="button" value="hacked!">'
+    ); // "rackeando" nossa página com invoke
   });
 });
