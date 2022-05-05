@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DavidCavalcanti/automatizacao-de-testes-cypress.git"
@@ -20,6 +19,7 @@
   },
   "homepage": "https://github.com/DavidCavalcanti/automatizacao-de-testes-cypress#readme",
   "dependencies": {
-    "cypress": "^3.6.0"
+    "cypress": "^3.6.0",
+    "cypress-xpath": "^1.6.2"
   }
 }
