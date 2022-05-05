@@ -42,4 +42,32 @@ describe("Helpers", () => {
       console.log("encontrei o primeiro botão 2")
     );
   });
+
+  // .its() -> pega uma propriedade do objeto
+  it.only("Its...", () => {
+    const objeto = { name: "User", old: 23 };
+    cy.wrap(objeto).should("have.property", "name", "User");
+    cy.wrap(objeto).its("name").should("be.equal", "User");
+
+    const objeto2 = {
+      nome: "David", //
+      idade: 23,
+      endereco: {
+        rua: "Rua tamandaré",
+        numero: 347,
+      },
+    };
+
+    // Encadeando its:
+    /* cy.wrap(objeto2)
+      .its("endereco")
+      .its("numero")
+      .then((el) => {
+        expect(el).to.be.equal(347);
+      }); */
+
+    // Melhorando o encadeamento
+    cy.wrap(objeto2).its("endereco.rua").should('contain', 'Rua tamandaré');
+    cy.wrap(objeto2).its("endereco.numero").should('be.equal', 347);
+  });
 });
