@@ -4,6 +4,7 @@ import { LOCATORS as loc } from "../../support/locators";
 describe("should test at a functional level", () => {
   before(() => {
     cy.login("a@a", "a");
+    cy.resetApp();
   });
 
   it("Should create an count", () => {
