@@ -1,6 +1,6 @@
 export const LOCATORS = {
   LOGIN: {
-    USER: "[data-test=menu-settings]",
+    USER: "[data-test=email]",
     PASSWORD: "[data-test=passwd]",
     BTN_LOGIN: ".btn",
   },
