@@ -1,33 +1,29 @@
 /// <reference types="cypress"/>
+import { LOCATORS as loc } from "../../support/locators";
 
 describe("should test at a functional level", () => {
   before(() => {
     cy.visit("https://barrigareact.wcaquino.me/");
-    cy.get("[data-test=email]").type("a@a");
-    cy.get("[data-test=passwd]").type("a");
-    cy.get(".btn").click();
-    cy.get(".toast-message").should("contain", "Bem vindo");
+    cy.get(loc.LOGIN.USER).type("a@a");
+    cy.get(loc.LOGIN.PASSWORD).type("a");
+    cy.get(loc.LOGIN.BTN_LOGIN).click();
+    cy.get(loc.MESSAGE).should("contain", "Bem vindo");
   });
 
   it("Should create an count", () => {
-    cy.get("[data-test=menu-settings]").click();
-    cy.get('[href="/contas"]').click();
-    cy.get("[data-test=nome]").type("Conta de Teste");
-    cy.get(".btn").click();
-    cy.get(".toast-success > .toast-message").should(
-      "contain",
-      "Conta inserida com sucesso!"
-    );
+    cy.get(loc.MENU.SETTINGS).click();
+    cy.get(loc.MENU.CONTAS).click();
+    cy.get(loc.CONTAS.NOME).type("Conta de Teste");
+    cy.get(loc.CONTAS.BTN_SALVAR).click();
+    cy.get(loc.MESSAGE).should("contain", "Conta inserida com sucesso!");
   });
 
   it("Should update an account", () => {
-    cy.get("[data-test=menu-settings]").click();
-    cy.get('[href="/contas"]').click();
-    cy.xpath(
-      "//table//td[contains(.,'Conta de Teste')]/..//i[@class='far fa-edit']"
-    ).click();
-    cy.get("[data-test=nome]").clear().type("Conta alterada");
-    cy.get(".btn").click();
-    cy.get(".toast-message").should("contain", "Conta atualizada com sucesso!");
+    cy.get(loc.MENU.SETTINGS).click();
+    cy.get(loc.MENU.CONTAS).click();
+    cy.xpath(loc.CONTAS.XP_BTN_ALTERAR).click();
+    cy.get(loc.CONTAS.NOME).clear().type("Conta alterada");
+    cy.get(loc.CONTAS.BTN_SALVAR).click();
+    cy.get(loc.MESSAGE).should("contain", "Conta atualizada com sucesso!");
   });
 });
