@@ -9,6 +9,7 @@ export const LOCATORS = {
     SETTINGS: "[data-test=menu-settings]",
     CONTAS: '[href="/contas"]',
     RESET: '[href="/reset"]',
+    MOVIMENTACAO: '[data-test="menu-movimentacao"]',
   },
 
   CONTAS: {
@@ -16,6 +17,13 @@ export const LOCATORS = {
     BTN_SALVAR: ".btn",
     XP_BTN_ALTERAR:
       "//table//td[contains(.,'Conta de Teste')]/..//i[@class='far fa-edit']",
+  },
+
+  MOVIMENTACAO: {
+    DESCRICAO: "[data-test=descricao]",
+    VALOR: "[data-test=valor]",
+    INTERESSADO: "[data-test=envolvido]",
+    BTN_SALVAR: ".btn-primary",
   },
 
   MESSAGE: ".toast-message",
