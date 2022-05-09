@@ -26,5 +26,10 @@ export const LOCATORS = {
     BTN_SALVAR: ".btn-primary",
   },
 
+  EXTRATO: {
+    XP_BUSCA_ELEMENTO:
+      "//span[contains(., 'Descrição')]/following-sibling::small[contains(., '100')]",
+  },
+
   MESSAGE: ".toast-message",
 };
