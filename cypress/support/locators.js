@@ -8,6 +8,7 @@ export const LOCATORS = {
   MENU: {
     SETTINGS: "[data-test=menu-settings]",
     CONTAS: '[href="/contas"]',
+    RESET: '[href="/reset"]',
   },
 
   CONTAS: {
