@@ -31,8 +31,10 @@ export const LOCATORS = {
   },
 
   EXTRATO: {
-    FUNC_XP_BUSCA_ELEMENTO: (desc) =>
-      `//span[contains(., '${desc}')]/following-sibling::small[contains(., '100')]`,
+    FUNC_XP_BUSCA_ELEMENTO: (desc, value) =>
+      `//span[contains(., '${desc}')]/following-sibling::small[contains(., '${value}')]`,
+   
+    FUN_XP_REMOVE_ELEMENTO: (conta)   => `//span[contains(.,'${conta}')]/../../..//a//i[@class='far fa-trash-alt']`
   },
 
   SALDO: {

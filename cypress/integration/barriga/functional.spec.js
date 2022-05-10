@@ -39,7 +39,9 @@ describe("should test at a functional level", () => {
     cy.get(loc.MOVIMENTACAO.BTN_SALVAR).click();
     cy.get(loc.MESSAGE).should("contain", "Movimentação inserida");
     //Este xpath está checando o nome o valor associado a ele
-    cy.xpath(loc.EXTRATO.FUNC_XP_BUSCA_ELEMENTO("Descrição")).should("exist");
+    cy.xpath(loc.EXTRATO.FUNC_XP_BUSCA_ELEMENTO("Descrição", "100")).should(
+      "exist"
+    );
   });
 
   it("Should get balance", () => {
@@ -48,5 +50,10 @@ describe("should test at a functional level", () => {
       "contain",
       "100,00"
     );
+  });
+
+  it("Should remove a transaction", () => {
+    cy.get(loc.MENU.EXTRATO).click();
+    cy.xpath(loc.EXTRATO.FUN_XP_REMOVE_ELEMENTO("Descrição"));
   });
 });
