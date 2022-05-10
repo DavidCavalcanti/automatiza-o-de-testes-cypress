@@ -6,10 +6,11 @@ export const LOCATORS = {
   },
 
   MENU: {
+    HOME: "[data-test=menu-home]",
     SETTINGS: "[data-test=menu-settings]",
     CONTAS: '[href="/contas"]',
     RESET: '[href="/reset"]',
-    MOVIMENTACAO: '[data-test="menu-movimentacao"]',
+    MOVIMENTACAO: "[data-test=menu-movimentacao]",
   },
 
   CONTAS: {
@@ -22,13 +23,20 @@ export const LOCATORS = {
   MOVIMENTACAO: {
     DESCRICAO: "[data-test=descricao]",
     VALOR: "[data-test=valor]",
+    CONTA: "[data-test=conta]",
     INTERESSADO: "[data-test=envolvido]",
+    STATUS: "[data-test=status]",
     BTN_SALVAR: ".btn-primary",
   },
 
   EXTRATO: {
     XP_BUSCA_ELEMENTO:
       "//span[contains(., 'Descrição')]/following-sibling::small[contains(., '100')]",
+  },
+
+  SALDO: {
+    XP_SALDO_CONTA:
+      "//td[contains(.,'Conta alterada')]//following-sibling::td[contains(.,'100,00')]",
   },
 
   MESSAGE: ".toast-message",
