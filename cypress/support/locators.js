@@ -11,6 +11,7 @@ export const LOCATORS = {
     CONTAS: '[href="/contas"]',
     RESET: '[href="/reset"]',
     MOVIMENTACAO: "[data-test=menu-movimentacao]",
+    EXTRATO: "[data-test=menu-extrato]",
   },
 
   CONTAS: {
@@ -30,13 +31,13 @@ export const LOCATORS = {
   },
 
   EXTRATO: {
-    XP_BUSCA_ELEMENTO:
-      "//span[contains(., 'Descrição')]/following-sibling::small[contains(., '100')]",
+    FUNC_XP_BUSCA_ELEMENTO: (desc) =>
+      `//span[contains(., '${desc}')]/following-sibling::small[contains(., '100')]`,
   },
 
   SALDO: {
-    XP_SALDO_CONTA:
-      "//td[contains(.,'Conta alterada')]//following-sibling::td[contains(.,'100,00')]",
+    FUNC_XP_SALDO_CONTA: (conta) =>
+      `//td[contains(.,'${conta}')]//following-sibling::td[contains(.,'100')]`,
   },
 
   MESSAGE: ".toast-message",

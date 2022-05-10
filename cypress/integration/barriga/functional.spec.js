@@ -39,11 +39,14 @@ describe("should test at a functional level", () => {
     cy.get(loc.MOVIMENTACAO.BTN_SALVAR).click();
     cy.get(loc.MESSAGE).should("contain", "Movimentação inserida");
     //Este xpath está checando o nome o valor associado a ele
-    cy.xpath(loc.EXTRATO.XP_BUSCA_ELEMENTO).should("exist");
+    cy.xpath(loc.EXTRATO.FUNC_XP_BUSCA_ELEMENTO("Descrição")).should("exist");
   });
 
   it("Should get balance", () => {
     cy.get(loc.MENU.HOME).click();
-    cy.xpath(loc.SALDO.XP_SALDO_CONTA).should("contain", "100,00");
+    cy.xpath(loc.SALDO.FUNC_XP_SALDO_CONTA("Conta alterada")).should(
+      "contain",
+      "100,00"
+    );
   });
 });
