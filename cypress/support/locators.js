@@ -18,7 +18,7 @@ export const LOCATORS = {
     NOME: "[data-test=nome]",
     BTN_SALVAR: ".btn",
     XP_BTN_ALTERAR:
-      "//table//td[contains(.,'Conta de Teste')]/..//i[@class='far fa-edit']",
+      "//table//td[contains(.,'Conta para alterar')]/..//i[@class='far fa-edit']",
   },
 
   MOVIMENTACAO: {
@@ -33,13 +33,14 @@ export const LOCATORS = {
   EXTRATO: {
     FUNC_XP_BUSCA_ELEMENTO: (desc, value) =>
       `//span[contains(., '${desc}')]/following-sibling::small[contains(., '${value}')]`,
-   
-    FUN_XP_REMOVE_ELEMENTO: (conta)   => `//span[contains(.,'${conta}')]/../../..//a//i[@class='far fa-trash-alt']`
+    FUN_XP_REMOVE_ELEMENTO: (conta) =>
+      `//span[contains(.,'${conta}')]/../../..//a//i[@class='far fa-trash-alt']`,
+    FUN_XP_ALTERAR_ELEMENTO: (conta) =>
+      `//span[contains(.,'${conta}')]/../../..//a//i[@class='fas fa-edit']`,
   },
 
   SALDO: {
-    FUNC_XP_SALDO_CONTA: (conta) =>
-      `//td[contains(.,'${conta}')]//following-sibling::td[contains(.,'100')]`,
+    FUNC_XP_SALDO_CONTA: (conta) => `//td[contains(.,'${conta}')]/../td[2]`,
   },
 
   MESSAGE: ".toast-message",
