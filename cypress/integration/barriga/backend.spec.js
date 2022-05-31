@@ -3,6 +3,8 @@
 import "../../support/commandMovimentacao";
 
 describe("should test at a functional level", () => {
+  let token;
+  
   before(() => {});
 
   beforeEach(() => {
