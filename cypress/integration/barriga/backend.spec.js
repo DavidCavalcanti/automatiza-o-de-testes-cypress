@@ -11,27 +11,16 @@ describe("should test at a functional level", () => {
 
   it("Should create an count", () => {
     // método para fazer requisições à API
-    cy.request({
-      method: "POST",
-      url: "https://barrigarest.wcaquino.me/signin",
-      body: {
-        email: "a@a",
-        redirecionar: false,
-        senha: "a",
-      },
-    })
-      .its("body.token")
-      .should("not.be.empty")
-      .then((token) => {
-        cy.request({
-          url: "https://barrigarest.wcaquino.me/contas",
-          method: "POST",
-          headers: { Authorization: `JWT ${token}` },
-          body: {
-            nome: "Conta via api rest",
-          },
-        }).as("response");
-      });
+    cy.getToken("a@a", "a").then((token) => {
+      cy.request({
+        url: "https://barrigarest.wcaquino.me/contas",
+        method: "POST",
+        headers: { Authorization: `JWT ${token}` },
+        body: {
+          nome: "Conta via api rest",
+        },
+      }).as("response");
+    });
 
     cy.get("@response").then((res) => {
       expect(res.status).to.be.equal(201);
