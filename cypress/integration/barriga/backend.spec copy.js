@@ -10,15 +10,28 @@ describe("should test at a functional level", () => {
   });
 
   it("Should create an count", () => {
-    cy.request({ // método para fazer requisições à API
+    // método para fazer requisições à API
+    cy.request({
       method: "POST",
       url: "https://barrigarest.wcaquino.me/signin",
       body: {
         email: "a@a",
         redirecionar: false,
-        senha: "a"
+        senha: "a",
       },
-    }).its('body.token').should("not.be.empty");
+    })
+      .its("body.token")
+      .should("not.be.empty")
+      .then((token) => {
+        cy.request({
+          url: "https://barrigarest.wcaquino.me/contas",
+          method: "POST",
+          headers: {Authorization: `JWT ${token}`},
+          body: {
+            nome: "Conta via api rest",
+          },
+        }).then((res) => console.log(res));
+      });
   });
 
   it("Should update an account", () => {});
